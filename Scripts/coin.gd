@@ -4,3 +4,4 @@ extends Area2D
 
 func _on_body_entered(body):
 	print ("Got the coin!")
+	queue_free()
