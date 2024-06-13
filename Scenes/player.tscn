@@ -46,6 +46,7 @@ radius = 5.09902
 script = ExtResource("1_7dwqw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_uq8lb")
 animation = &"idle"
