@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxkl5cjhqinut"]
+[gd_scene load_steps=12 format=3 uid="uid://cxkl5cjhqinut"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="3_i42vk"]
 [ext_resource type="FontFile" uid="uid://cj2g4iy4oryg5" path="res://Assets/fonts/Thirteen-Pixel-Fonts.ttf" id="4_l04i5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vtm84oo228jr" path="res://Assets/sprites/world_tileset.png" id="5_qefb3"]
 [ext_resource type="PackedScene" uid="uid://dagh2j6gxuoii" path="res://Scenes/coin.tscn" id="7_x5ttc"]
 [ext_resource type="PackedScene" uid="uid://4hcvu0o6ui4m" path="res://Scenes/platform_grass.tscn" id="8_0h2rm"]
+[ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="9_dfjy3"]
 [ext_resource type="PackedScene" uid="uid://bf245qpaop3sv" path="res://Scenes/slime_enemy.tscn" id="10_rsgjd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxryk"]
@@ -410,6 +411,8 @@ texture = ExtResource("5_qefb3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hxryk")
 
+[sub_resource type="Theme" id="Theme_6ub5t"]
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_i42vk")]
@@ -432,13 +435,51 @@ layer_2/tile_data = PackedInt32Array(65529, 0, 0, 131065, 65536, 0, 196601, 6553
 [node name="Labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Labels"]
-offset_left = -32.0
-offset_top = -125.0
-offset_right = 262.0
-offset_bottom = -62.0
+offset_left = -6.0
+offset_top = -116.0
+offset_right = 288.0
+offset_bottom = -53.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_l04i5")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "KnightGuy"
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 25.0
+offset_top = -48.0
+offset_right = 66.0
+offset_bottom = -36.0
+theme = SubResource("Theme_6ub5t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_dfjy3")
+theme_override_font_sizes/font_size = 8
+text = "Start"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 84.0
+offset_top = -48.0
+offset_right = 130.0
+offset_bottom = -36.0
+theme = SubResource("Theme_6ub5t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_dfjy3")
+theme_override_font_sizes/font_size = 8
+text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Labels"]
+offset_left = 147.0
+offset_top = -48.0
+offset_right = 188.0
+offset_bottom = -36.0
+theme = SubResource("Theme_6ub5t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_dfjy3")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+horizontal_alignment = 1
 
 [node name="Slime" parent="." instance=ExtResource("10_rsgjd")]
 position = Vector2(220, 8)
@@ -450,7 +491,10 @@ flip_h = true
 [node name="Coins_menu" type="Node" parent="."]
 
 [node name="Coin" parent="Coins_menu" instance=ExtResource("7_x5ttc")]
-position = Vector2(267, -89)
+position = Vector2(266, -90)
+
+[node name="Coin2" parent="Coins_menu" instance=ExtResource("7_x5ttc")]
+position = Vector2(-89, -32)
 
 [node name="Platform_menu" type="Node" parent="."]
 
