@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpl24dddx5fos"]
+[gd_scene load_steps=17 format=3 uid="uid://cpl24dddx5fos"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="1_l8rth"]
 [ext_resource type="AudioStream" uid="uid://cdp8xgrwwd74f" path="res://Assets/sounds/jump.wav" id="2_f70f6"]
 [ext_resource type="Texture2D" uid="uid://vtm84oo228jr" path="res://Assets/sprites/world_tileset.png" id="2_uxbd3"]
+[ext_resource type="FontFile" uid="uid://daox0tyfta2al" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_vs3va"]
 [ext_resource type="PackedScene" uid="uid://4hcvu0o6ui4m" path="res://Scenes/platform_grass.tscn" id="4_1s5kt"]
 [ext_resource type="PackedScene" uid="uid://dagh2j6gxuoii" path="res://Scenes/coin.tscn" id="5_3i7cj"]
 [ext_resource type="PackedScene" uid="uid://b4eikmpc3qmw6" path="res://Scenes/killzone.tscn" id="6_uh6au"]
 [ext_resource type="PackedScene" uid="uid://bf245qpaop3sv" path="res://Scenes/slime_enemy.tscn" id="7_px6d0"]
 [ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="8_iugyw"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="9_68vk0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxryk"]
 texture = ExtResource("2_uxbd3")
@@ -453,6 +455,23 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_68vk0")
+
+[node name="Coin counter" type="Label" parent="GameManager"]
+offset_left = 96.0
+offset_top = -68.0
+offset_right = 172.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vs3va")
+theme_override_font_sizes/font_size = 8
+text = "Coins collected: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="Player" parent="." instance=ExtResource("1_l8rth")]
 position = Vector2(-3, 12)
 
@@ -520,10 +539,10 @@ position = Vector2(-84, 9)
 [node name="Labels" type="Node" parent="."]
 
 [node name="Slime warning" type="Label" parent="Labels"]
-offset_left = -93.0
-offset_top = -54.0
-offset_right = -25.0
-offset_bottom = -21.0
+offset_left = -116.0
+offset_top = -62.0
+offset_right = -48.0
+offset_bottom = -29.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_iugyw")
 theme_override_font_sizes/font_size = 8
@@ -542,10 +561,10 @@ text = "Don't fall, it hurts..."
 autowrap_mode = 2
 
 [node name="Coin info" type="Label" parent="Labels"]
-offset_left = 70.0
-offset_top = -48.0
-offset_right = 192.0
-offset_bottom = -36.0
+offset_left = 76.0
+offset_top = -80.0
+offset_right = 198.0
+offset_bottom = -68.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_iugyw")
 theme_override_font_sizes/font_size = 8
