@@ -29,7 +29,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: windows
+          name: KnightGuy-Windows
           path: build/windows
 
   export-linux:
@@ -54,7 +54,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: linux
+          name: KnightGuy-Linux
           path: build/linux
 
 #   export-web:
