@@ -4,7 +4,7 @@ on: workflow_dispatch
 env:
   GODOT_VERSION: 4.2.2
   EXPORT_NAME: KnightGuy
-  PROJECT_PATH: KnightGuy
+  PROJECT_PATH: .
 
 jobs:
   export-windows:
