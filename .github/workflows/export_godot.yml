@@ -76,6 +76,12 @@ jobs:
           mkdir -v -p build/web
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" build/web/index.html
+      - name: Add coi-serviceworker.js
+        run: |
+          wget https://raw.githubusercontent.com/gzuidhof/coi-serviceworker/master/coi-serviceworker.js -O build/web/coi-serviceworker.js
+      - name: Modify index.html to include service worker
+        run: |
+          sed -i 's|</head>|<script src="coi-serviceworker.js"></script></head>|' build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
