@@ -533,9 +533,6 @@ libraries = {
 "": SubResource("AnimationLibrary_sq81y")
 }
 
-[node name="Slime" parent="." instance=ExtResource("7_px6d0")]
-position = Vector2(-84, 9)
-
 [node name="Labels" type="Node" parent="."]
 
 [node name="Slime warning" type="Label" parent="Labels"]
@@ -571,3 +568,6 @@ theme_override_font_sizes/font_size = 8
 text = "Collect the shinies!
 "
 autowrap_mode = 2
+
+[node name="Slime" parent="." instance=ExtResource("7_px6d0")]
+position = Vector2(-84, 9)
