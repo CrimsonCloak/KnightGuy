@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxkl5cjhqinut"]
+[gd_scene load_steps=15 format=3 uid="uid://cxkl5cjhqinut"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="3_i42vk"]
 [ext_resource type="FontFile" uid="uid://cj2g4iy4oryg5" path="res://Assets/fonts/Thirteen-Pixel-Fonts.ttf" id="4_l04i5"]
 [ext_resource type="AudioStream" uid="uid://cdp8xgrwwd74f" path="res://Assets/sounds/jump.wav" id="4_n3wkv"]
 [ext_resource type="Texture2D" uid="uid://vtm84oo228jr" path="res://Assets/sprites/world_tileset.png" id="5_qefb3"]
+[ext_resource type="Script" path="res://Scripts/Start_button.gd" id="6_i22sy"]
+[ext_resource type="Script" path="res://Scripts/Credits_button.gd" id="7_trwa2"]
 [ext_resource type="PackedScene" uid="uid://dagh2j6gxuoii" path="res://Scenes/coin.tscn" id="7_x5ttc"]
 [ext_resource type="PackedScene" uid="uid://4hcvu0o6ui4m" path="res://Scenes/platform_grass.tscn" id="8_0h2rm"]
+[ext_resource type="Script" path="res://Scripts/Quit_button.gd" id="8_83cd5"]
 [ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="9_dfjy3"]
 [ext_resource type="PackedScene" uid="uid://bf245qpaop3sv" path="res://Scenes/slime_enemy.tscn" id="10_rsgjd"]
 
@@ -446,12 +449,14 @@ theme_override_font_sizes/font_size = 40
 text = "KnightGuy"
 
 [node name="Start_button" type="Button" parent="Text"]
-offset_left = 26.0
-offset_top = -50.0
-offset_right = 68.0
-offset_bottom = -36.0
+offset_left = 27.0
+offset_top = -47.0
+offset_right = 69.0
+offset_bottom = -33.0
 theme_override_fonts/font = ExtResource("9_dfjy3")
 theme_override_font_sizes/font_size = 8
+action_mode = 0
+script = ExtResource("6_i22sy")
 
 [node name="Start" type="Label" parent="Text/Start_button"]
 offset_left = -1.0
@@ -466,12 +471,13 @@ text = "Start"
 horizontal_alignment = 1
 
 [node name="Credits_button" type="Button" parent="Text"]
-offset_left = 84.0
-offset_top = -50.0
-offset_right = 130.0
-offset_bottom = -36.0
+offset_left = 85.0
+offset_top = -47.0
+offset_right = 131.0
+offset_bottom = -33.0
 theme_override_fonts/font = ExtResource("9_dfjy3")
 theme_override_font_sizes/font_size = 8
+script = ExtResource("7_trwa2")
 
 [node name="Credits" type="Label" parent="Text/Credits_button"]
 offset_top = 2.0
@@ -486,12 +492,13 @@ text = "Credits
 horizontal_alignment = 1
 
 [node name="Quit_button" type="Button" parent="Text"]
-offset_left = 152.0
-offset_top = -50.0
-offset_right = 182.0
-offset_bottom = -36.0
+offset_left = 153.0
+offset_top = -47.0
+offset_right = 183.0
+offset_bottom = -33.0
 theme_override_fonts/font = ExtResource("9_dfjy3")
 theme_override_font_sizes/font_size = 8
+script = ExtResource("8_83cd5")
 
 [node name="Quit" type="Label" parent="Text/Quit_button"]
 offset_left = -5.0
@@ -516,9 +523,11 @@ flip_h = true
 
 [node name="Coin" parent="Coins_menu" instance=ExtResource("7_x5ttc")]
 position = Vector2(266, -90)
+script = null
 
 [node name="Coin2" parent="Coins_menu" instance=ExtResource("7_x5ttc")]
 position = Vector2(-89, -32)
+script = null
 
 [node name="Platform_menu" type="Node" parent="."]
 
