@@ -62,4 +62,5 @@ animations = [{
 [node name="Chest_wood" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_nw8cs")
