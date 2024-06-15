@@ -500,16 +500,34 @@ shape = SubResource("WorldBoundaryShape2D_p1jf5")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("5_3i7cj")]
-position = Vector2(141, 32)
+position = Vector2(1036, 1)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("5_3i7cj")]
 position = Vector2(132, -23)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(-100, -16)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("5_3i7cj")]
 position = Vector2(316, 1)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("5_3i7cj")]
 position = Vector2(630, 27)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(1101, -70)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(1213, 78)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(1501, 79)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(1949, -50)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("5_3i7cj")]
+position = Vector2(1691, 8)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -539,10 +557,10 @@ text = "Watch out for these guys..."
 autowrap_mode = 2
 
 [node name="Fall warning" type="Label" parent="Labels"]
-offset_left = 500.0
-offset_top = -52.0
-offset_right = 587.0
-offset_bottom = -30.0
+offset_left = 521.0
+offset_top = -45.0
+offset_right = 608.0
+offset_bottom = -23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_iugyw")
 theme_override_font_sizes/font_size = 8
