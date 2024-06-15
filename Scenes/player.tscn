@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dp8fpqhulqn3p"]
+[gd_scene load_steps=27 format=3 uid="uid://dp8fpqhulqn3p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7dwqw"]
 [ext_resource type="Texture2D" uid="uid://djhnguurfofig" path="res://Assets/sprites/knight.png" id="1_uawyd"]
+[ext_resource type="PackedScene" uid="uid://cndemm46jta8j" path="res://Scenes/sword.tscn" id="3_xpl4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52xp1"]
 atlas = ExtResource("1_uawyd")
@@ -172,8 +173,14 @@ animations = [{
 radius = 5.09902
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 collision_layer = 2
 script = ExtResource("1_7dwqw")
+
+[node name="Sword" parent="." instance=ExtResource("3_xpl4c")]
+visible = false
+z_index = 6
+position = Vector2(6, -12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
