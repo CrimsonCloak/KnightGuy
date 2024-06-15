@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0cm485afba2l"
-path="res://.godot/imported/TX FX Torch Flame.png-4c1b702adb838ee5871f8baabed8c265.ctex"
+uid="uid://dr5k7i8u8v3d6"
+path="res://.godot/imported/TX Chest Animation.png-c13411482116b1d1a9d973a6cbcb8e36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX FX Torch Flame.png"
-dest_files=["res://.godot/imported/TX FX Torch Flame.png-4c1b702adb838ee5871f8baabed8c265.ctex"]
+source_file="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Chest Animation.png"
+dest_files=["res://.godot/imported/TX Chest Animation.png-c13411482116b1d1a9d973a6cbcb8e36.ctex"]
 
 [params]
 

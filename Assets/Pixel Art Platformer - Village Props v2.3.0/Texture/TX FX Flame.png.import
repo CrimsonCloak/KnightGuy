@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ced8he17us24c"
-path="res://.godot/imported/TX FX Flame.png-4619b00f6cdc8752a80306f478421564.ctex"
+path="res://.godot/imported/TX FX Flame.png-3722131ee1818ac93d00882c3316675e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX FX Flame.png"
-dest_files=["res://.godot/imported/TX FX Flame.png-4619b00f6cdc8752a80306f478421564.ctex"]
+source_file="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX FX Flame.png"
+dest_files=["res://.godot/imported/TX FX Flame.png-3722131ee1818ac93d00882c3316675e.ctex"]
 
 [params]
 

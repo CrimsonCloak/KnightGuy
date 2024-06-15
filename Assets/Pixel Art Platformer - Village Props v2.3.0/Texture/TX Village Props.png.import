@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hbxce6ktcjia"
-path="res://.godot/imported/TX Tileset Ground.png-0b32e96c503677877fedeaa3edf20b67.ctex"
+uid="uid://dq4spas485esd"
+path="res://.godot/imported/TX Village Props.png-ae105b3ad382bbc0b6d8f8ce2b7ebe72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png"
-dest_files=["res://.godot/imported/TX Tileset Ground.png-0b32e96c503677877fedeaa3edf20b67.ctex"]
+source_file="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png"
+dest_files=["res://.godot/imported/TX Village Props.png-ae105b3ad382bbc0b6d8f8ce2b7ebe72.ctex"]
 
 [params]
 
