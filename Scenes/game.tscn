@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpl24dddx5fos"]
+[gd_scene load_steps=17 format=3 uid="uid://cpl24dddx5fos"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="1_l8rth"]
 [ext_resource type="Texture2D" uid="uid://vtm84oo228jr" path="res://Assets/sprites/world_tileset.png" id="2_uxbd3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bf245qpaop3sv" path="res://Scenes/slime_enemy.tscn" id="7_px6d0"]
 [ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="8_iugyw"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="9_68vk0"]
+[ext_resource type="PackedScene" uid="uid://ding6m7xtsi4j" path="res://Scenes/chest_wood.tscn" id="10_8pd7u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxryk"]
 texture = ExtResource("2_uxbd3")
@@ -527,7 +528,7 @@ position = Vector2(1501, 79)
 position = Vector2(1949, -50)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("5_3i7cj")]
-position = Vector2(1691, 8)
+position = Vector2(1580, 33)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -586,3 +587,6 @@ position = Vector2(-84, 9)
 
 [node name="Slime2" parent="Slimes" instance=ExtResource("7_px6d0")]
 position = Vector2(1307, 168)
+
+[node name="Chest_wood" parent="." instance=ExtResource("10_8pd7u")]
+position = Vector2(1772, 32)
