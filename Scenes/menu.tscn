@@ -413,7 +413,7 @@ sources/0 = SubResource("TileSetAtlasSource_hxryk")
 
 [sub_resource type="Theme" id="Theme_6ub5t"]
 
-[node name="Game" type="Node2D"]
+[node name="Menu" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_i42vk")]
 position = Vector2(173, 12)
