@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://ding6m7xtsi4j"]
+
+[ext_resource type="Texture2D" uid="uid://dr5k7i8u8v3d6" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Chest Animation.png" id="1_gob0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sd3h"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(30, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfdvf"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(94, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7rgu"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(158, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ttv"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(222, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quo7g"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(286, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiqxw"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(350, 25, 35, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cctpy"]
+atlas = ExtResource("1_gob0m")
+region = Rect2(414, 25, 35, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nw8cs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sd3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfdvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7rgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ttv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quo7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiqxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cctpy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Chest_wood" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nw8cs")
