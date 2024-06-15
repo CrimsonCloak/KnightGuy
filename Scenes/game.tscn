@@ -568,6 +568,17 @@ theme_override_font_sizes/font_size = 8
 text = "Don't fall, it hurts..."
 autowrap_mode = 2
 
+[node name="Chest notice" type="Label" parent="Labels"]
+offset_left = 1646.0
+offset_top = -1.0
+offset_right = 1746.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_iugyw")
+theme_override_font_sizes/font_size = 8
+text = "A gift left for you...?"
+autowrap_mode = 2
+
 [node name="Coin info" type="Label" parent="Labels"]
 offset_left = 76.0
 offset_top = -80.0
