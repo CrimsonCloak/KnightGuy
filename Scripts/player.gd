@@ -10,7 +10,7 @@ var MAX_JUMPS = 1
 var SPEED
 var WALKING_SPEED = 100.0
 var SPRINT_UNLOCKED = false
-var SPRINT_SPEED = 200.0
+var SPRINT_SPEED = 150.0
 
 # External variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
