@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ding6m7xtsi4j"]
+[gd_scene load_steps=11 format=3 uid="uid://ding6m7xtsi4j"]
 
 [ext_resource type="Texture2D" uid="uid://dr5k7i8u8v3d6" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Chest Animation.png" id="1_gob0m"]
 
@@ -55,12 +55,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_cctpy")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"open",
+"speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx5br"]
+size = Vector2(12, 10)
 
 [node name="Chest_wood" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_nw8cs")
+animation = &"open"
+frame = 5
+frame_progress = 0.212709
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_vx5br")
