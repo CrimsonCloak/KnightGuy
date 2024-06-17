@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://cpl24dddx5fos"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="1_l8rth"]
+[ext_resource type="PackedScene" uid="uid://tajq3b7vkk83" path="res://Scenes/coin_counter.tscn" id="2_gu3pv"]
 [ext_resource type="Texture2D" uid="uid://vtm84oo228jr" path="res://Assets/sprites/world_tileset.png" id="2_uxbd3"]
-[ext_resource type="FontFile" uid="uid://daox0tyfta2al" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_vs3va"]
 [ext_resource type="PackedScene" uid="uid://4hcvu0o6ui4m" path="res://Scenes/platform_grass.tscn" id="4_1s5kt"]
 [ext_resource type="PackedScene" uid="uid://dagh2j6gxuoii" path="res://Scenes/coin.tscn" id="5_3i7cj"]
 [ext_resource type="PackedScene" uid="uid://b4eikmpc3qmw6" path="res://Scenes/killzone.tscn" id="6_uh6au"]
@@ -460,18 +460,7 @@ _data = {
 unique_name_in_owner = true
 script = ExtResource("9_68vk0")
 
-[node name="Coin counter" type="Label" parent="GameManager"]
-offset_left = 96.0
-offset_top = -68.0
-offset_right = 172.0
-offset_bottom = -35.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_vs3va")
-theme_override_font_sizes/font_size = 8
-text = "Coins collected: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+[node name="CoinCounter" parent="GameManager" instance=ExtResource("2_gu3pv")]
 
 [node name="Player" parent="." instance=ExtResource("1_l8rth")]
 position = Vector2(-3, 12)

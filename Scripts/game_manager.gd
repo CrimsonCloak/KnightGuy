@@ -1,10 +1,9 @@
 extends Node
 
 var coins = 0
-@onready var coin_counter = $"Coin counter"
+@onready var coin_counter = $CoinCounter
 
-var coins_score_string = "Coins collected: {str}"
 
 func add_coin():
 	coins += 1
-	coin_counter.text = coins_score_string.format({"str": str(coins)})
+	coin_counter.get_child(0).update_coin_count(coins)
