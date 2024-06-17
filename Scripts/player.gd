@@ -3,6 +3,7 @@ extends CharacterBody2D
 # Required scenes
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var game_manager = %GameManager
+@onready var sword = $Sword
 
 # Variables
 const JUMP_VELOCITY = -250.0
@@ -22,13 +23,22 @@ var jumps_left = MAX_JUMPS  # Remaining jumps
 var unlock_sprint = 2
 var unlock_doublejump = 5
 
+# Make sword visible
+
 func _physics_process(delta):
+	
+	# Unlocks and upgrades
 	
 	if game_manager.coins >= 5:
 		SPRINT_UNLOCKED = true
 		
 	if game_manager.coins >= 10:
 		MAX_JUMPS = 2
+		
+	if game_manager.swordCollected == true:
+		sword.visible = true
+		
+		
 	
 	# Add the gravity.
 	if not is_on_floor():
