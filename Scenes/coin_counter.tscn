@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://tajq3b7vkk83"]
+[gd_scene load_steps=3 format=3 uid="uid://tajq3b7vkk83"]
 
 [ext_resource type="Script" path="res://Scenes/CoinLayer.gd" id="1_waht3"]
+[ext_resource type="Texture2D" uid="uid://cgr43u7qmeenp" path="res://Assets/images/Coin_image.png" id="2_2ne11"]
 
 [node name="CoinCounter" type="Node2D"]
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_waht3")
 
-[node name="CoinLabel" type="Label" parent="UICanvasLayer"]
+[node name="CoinCounterContainer" type="HBoxContainer" parent="UICanvasLayer"]
 offset_right = 40.0
-offset_bottom = 23.0
-text = "Coins: 0"
+offset_bottom = 40.0
+
+[node name="CoinIcon" type="TextureRect" parent="UICanvasLayer/CoinCounterContainer"]
+layout_mode = 2
+texture = ExtResource("2_2ne11")
+
+[node name="CoinLabel" type="Label" parent="UICanvasLayer/CoinCounterContainer"]
+layout_mode = 2
+text = ": 0"
