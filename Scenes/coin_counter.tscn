@@ -6,6 +6,8 @@
 [node name="CoinCounter" type="Node2D"]
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(40, 40)
+transform = Transform2D(1, 0, 0, 1, 40, 40)
 script = ExtResource("1_waht3")
 
 [node name="CoinCounterContainer" type="HBoxContainer" parent="UICanvasLayer"]
