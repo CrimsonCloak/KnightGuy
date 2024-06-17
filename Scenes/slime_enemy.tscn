@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf245qpaop3sv"]
+[gd_scene load_steps=11 format=3 uid="uid://bf245qpaop3sv"]
 
 [ext_resource type="Script" path="res://Scripts/slime_enemy.gd" id="1_o7mn5"]
 [ext_resource type="Texture2D" uid="uid://vwxldgoxbqj3" path="res://Assets/sprites/slime_green.png" id="1_pwtff"]
 [ext_resource type="PackedScene" uid="uid://b4eikmpc3qmw6" path="res://Scenes/killzone.tscn" id="2_lium6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bfqy"]
+atlas = ExtResource("1_pwtff")
+region = Rect2(48, 54, 24, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh0d3"]
 atlas = ExtResource("1_pwtff")
@@ -22,6 +26,14 @@ region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nudvg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bfqy")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hh0d3")
@@ -49,8 +61,8 @@ script = ExtResource("1_o7mn5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_nudvg")
+animation = &"death"
 autoplay = "default"
-frame_progress = 0.988048
 
 [node name="Killzone" parent="." instance=ExtResource("2_lium6")]
 
