@@ -23,6 +23,13 @@ var unlock_sprint = 2
 var unlock_doublejump = 5
 
 func _physics_process(delta):
+	
+	if game_manager.coins >= 5:
+		SPRINT_UNLOCKED = true
+		
+	if game_manager.coins >= 10:
+		MAX_JUMPS = 2
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
