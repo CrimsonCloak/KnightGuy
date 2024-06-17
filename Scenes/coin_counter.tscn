@@ -11,6 +11,7 @@ script = ExtResource("1_waht3")
 [node name="CoinCounterContainer" type="HBoxContainer" parent="UICanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
+tooltip_text = "These are your coins!"
 
 [node name="CoinIcon" type="TextureRect" parent="UICanvasLayer/CoinCounterContainer"]
 layout_mode = 2
