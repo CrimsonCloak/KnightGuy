@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://tajq3b7vkk83"]
 
-[ext_resource type="Script" path="res://Scenes/CoinLayer.gd" id="1_waht3"]
+[ext_resource type="Script" path="res://Scripts/CoinLayer.gd" id="1_vre6w"]
 [ext_resource type="Texture2D" uid="uid://cgr43u7qmeenp" path="res://Assets/images/Coin_image.png" id="2_2ne11"]
 [ext_resource type="FontFile" uid="uid://daox0tyfta2al" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_44dsq"]
 
@@ -9,7 +9,7 @@
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(40, 40)
 transform = Transform2D(1, 0, 0, 1, 40, 40)
-script = ExtResource("1_waht3")
+script = ExtResource("1_vre6w")
 
 [node name="MarginContainer" type="MarginContainer" parent="UICanvasLayer"]
 offset_right = 150.0
