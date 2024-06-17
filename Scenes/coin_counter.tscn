@@ -12,12 +12,12 @@ transform = Transform2D(1, 0, 0, 1, 40, 40)
 script = ExtResource("1_waht3")
 
 [node name="MarginContainer" type="MarginContainer" parent="UICanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 150.0
+offset_bottom = 61.0
 
 [node name="Background" type="ColorRect" parent="UICanvasLayer/MarginContainer"]
 layout_mode = 2
-color = Color(0.921974, 0.815881, 0.63216, 1)
+color = Color(0.921569, 0.815686, 0.631373, 0.384314)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/MarginContainer"]
 layout_mode = 2
