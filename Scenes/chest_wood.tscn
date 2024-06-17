@@ -1,30 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ding6m7xtsi4j"]
+[gd_scene load_steps=8 format=3 uid="uid://ding6m7xtsi4j"]
 
+[ext_resource type="Script" path="res://Scripts/chest_wood.gd" id="1_ewgyj"]
 [ext_resource type="Texture2D" uid="uid://dr5k7i8u8v3d6" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Chest Animation.png" id="1_gob0m"]
+[ext_resource type="AudioStream" uid="uid://bt3ylb8nstrvv" path="res://Assets/sounds/wooden-trunk-latch.mp3" id="3_fc3dl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7sd3h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bf38"]
 atlas = ExtResource("1_gob0m")
-region = Rect2(30, 25, 35, 39)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xfdvf"]
-atlas = ExtResource("1_gob0m")
-region = Rect2(94, 25, 35, 39)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7rgu"]
-atlas = ExtResource("1_gob0m")
-region = Rect2(158, 25, 35, 39)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2ttv"]
-atlas = ExtResource("1_gob0m")
-region = Rect2(222, 25, 35, 39)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_quo7g"]
-atlas = ExtResource("1_gob0m")
-region = Rect2(286, 25, 35, 39)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kiqxw"]
-atlas = ExtResource("1_gob0m")
-region = Rect2(350, 25, 35, 39)
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cctpy"]
 atlas = ExtResource("1_gob0m")
@@ -34,27 +16,17 @@ region = Rect2(414, 25, 35, 39)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7sd3h")
+"texture": SubResource("AtlasTexture_0bf38")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xfdvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7rgu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v2ttv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_quo7g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kiqxw")
-}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cctpy")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
 "speed": 10.0
 }]
@@ -62,17 +34,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx5br"]
 size = Vector2(12, 10)
 
-[node name="Chest_wood" type="Node2D"]
+[node name="Chest_wood" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ewgyj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_nw8cs")
-animation = &"open"
-frame = 5
-frame_progress = 0.212709
+animation = &"closed"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_vx5br")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fc3dl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
