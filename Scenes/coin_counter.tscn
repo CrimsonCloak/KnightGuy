@@ -11,17 +11,25 @@ offset = Vector2(40, 40)
 transform = Transform2D(1, 0, 0, 1, 40, 40)
 script = ExtResource("1_waht3")
 
-[node name="CoinCounterContainer" type="HBoxContainer" parent="UICanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="UICanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="UICanvasLayer/MarginContainer"]
+layout_mode = 2
+color = Color(0.921974, 0.815881, 0.63216, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/MarginContainer"]
+layout_mode = 2
 tooltip_text = "These are your coins!"
 
-[node name="CoinIcon" type="TextureRect" parent="UICanvasLayer/CoinCounterContainer"]
+[node name="CoinIcon" type="TextureRect" parent="UICanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_2ne11")
 
-[node name="CoinLabel" type="Label" parent="UICanvasLayer/CoinCounterContainer"]
+[node name="CoinLabel" type="Label" parent="UICanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_44dsq")
 theme_override_font_sizes/font_size = 32
 text = ": 0"
