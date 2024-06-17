@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-
-const SPEED = 100.0
+var SPEED
 const JUMP_VELOCITY = -250.0
+var WALKING_SPEED = 100.0
+var SPRINT_SPEED = 200.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,9 +19,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-# Movement
+# Movement 
 	var direction = Input.get_axis("Move_left", "Move_right")
 	
+	if Input.is_action_pressed("Sprint"):
+		SPEED = SPRINT_SPEED
+	else:
+		SPEED = WALKING_SPEED
 	# Sprite flip
 	# One-liner but defaults to looking to one specific direction
 	#animated_sprite.flip_h = true if (direction < 0) else false
