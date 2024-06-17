@@ -1,16 +1,26 @@
 extends CharacterBody2D
 
-const MAX_JUMPS = 2
+# Required scenes
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var game_manager = %GameManager
+
+# Variables
 const JUMP_VELOCITY = -250.0
+var MAX_JUMPS = 1
 var SPEED
 var WALKING_SPEED = 100.0
+var SPRINT_UNLOCKED = false
 var SPRINT_SPEED = 200.0
 
-@onready var animated_sprite = $AnimatedSprite2D
+# External variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# Derived from CONST variables for use
+# Derived variables
 var jumps_left = MAX_JUMPS  # Remaining jumps
+
+# Unlockable thresholds - coins
+var unlock_sprint = 2
+var unlock_doublejump = 5
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -22,15 +32,16 @@ func _physics_process(delta):
 		jumps_left = MAX_JUMPS
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and jumps_left > 0:
-		velocity.y = JUMP_VELOCITY
-		jumps_left -= 1
+	if Input.is_action_just_pressed("Jump"):
+		if jumps_left > 0:
+			velocity.y = JUMP_VELOCITY
+			jumps_left -= 1
 
 	# Movement
 	var direction = Input.get_axis("Move_left", "Move_right")
 	
-	# Sprint
-	if Input.is_action_pressed("Sprint"):
+	# Sprint - unlocked after 
+	if Input.is_action_pressed("Sprint") and SPRINT_UNLOCKED == true:
 		SPEED = SPRINT_SPEED
 	else:
 		SPEED = WALKING_SPEED
