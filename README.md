@@ -1,4 +1,4 @@
-# <center> KnightGuy </center>
+# KnightGuy
 
 ![Banner image of KnightGuy](.github/images/KnightGuy.png)
 
