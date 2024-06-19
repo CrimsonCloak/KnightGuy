@@ -7,40 +7,82 @@ on:
         required: true
 
 jobs:
-  create-release:
-    name: Create GitHub Release
-    runs-on: ubuntu-latest
+    check-release:
+        name: Check and create release
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+          
+          # Step to get the latest tag
+          - name: Get latest tag
+            id: get_latest_tag
+            run: echo "LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+    
+          # Step to get the latest release
+          - name: Get the most recent release
+            id: get_latest_release
+            uses: joutvhu/get-release@v1
+            with:
+              latest: true
+              pattern: '^v.*'
+              prerelease: true
+    
+          # Step to check if release already exists
+          - name: Check if release already exists
+            id: check_release
+            run: |
+              echo "LATEST_TAG: ${{ env.LATEST_TAG }}"
+              echo "Latest release tag: ${{ steps.get_latest_release.outputs.tag_name }}"
+              if [ -z "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
+                echo "No releases found."
+                echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
+              elif [ "${{ env.LATEST_TAG }}" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
+                echo "Release already exists."
+                echo "RELEASE_EXISTS=true" >> $GITHUB_ENV
+              else
+                echo "Release does not exist."
+                echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
+              fi
+    
+          # Step to trigger next job 'create-release' based on  RELEASE_EXISTS
+          
+    create-release:
+        name: Create GitHub Release
+        runs-on: ubuntu-latest
+        needs: check-release
+        if: ${{ needs.check-release.outputs.check_release == 'false' }}
+        
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+        - name: Download Windows Artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: KnightGuy-Windows
+            path: build/windows
 
-      - name: Download Windows Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: KnightGuy-Windows
-          path: build/windows
+        - name: Download Linux Artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: KnightGuy-Linux
+            path: build/linux
 
-      - name: Download Linux Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: KnightGuy-Linux
-          path: build/linux
+        - name: Download Web Artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: KnightGuy-Web
+            path: build/web
 
-      - name: Download Web Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: KnightGuy-Web
-          path: build/web
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-            tag: ${{ github.event.inputs.tag_name }}
-            name: Release ${{ github.event.inputs.tag_name }}
-            artifacts: |
-                build/windows/*
-                build/linux/*
-                build/web/*
-            body: |
-                Release ${{ github.event.inputs.tag_name }} of KnightGuy
+        - name: Create Release
+          uses: ncipollo/release-action@v1
+          with:
+                tag: ${{ github.event.inputs.tag_name }}
+                name: Release ${{ github.event.inputs.tag_name }}
+                artifacts: |
+                    build/windows/*
+                    build/linux/*
+                    build/web/*
+                body: |
+                    Release ${{ github.event.inputs.tag_name }} of KnightGuy
