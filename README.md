@@ -4,7 +4,7 @@
 
 This is the repository which holds assets, scripts and other files for my first attempt at using the Godot engine. I am following along a [Brackeys tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0) and putting my own spin on it, testing some stuff and defining my flow for working with Godot. The result of this experimenting is this game I have dubbed "KnightGuy". 
 
-The idea was for me to design a little 'game' whilst learning the basics of the Godot engine.
+The idea was for me to design a little 'game' whilst learning the basics of the Godot engine. Additionally, I could also learn a bit more about CI/CD using GitHub Actions and how tagging and releases work. A great learning experience!
 
 ## Premise
 
