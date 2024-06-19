@@ -1,10 +1,8 @@
-name: "Create Release"
+name: "Create release from latest tag"
 on:
   workflow_dispatch:
-    inputs:
-      tag_name:
-        description: 'Tag name'
-        required: true
+env: 
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
     check-release:
@@ -52,7 +50,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: check-release
         if: ${{ needs.check-release.outputs.check_release == 'false' }}
-        
+
         steps:
         - name: Checkout
           uses: actions/checkout@v4
@@ -78,11 +76,11 @@ jobs:
         - name: Create Release
           uses: ncipollo/release-action@v1
           with:
-                tag: ${{ github.event.inputs.tag_name }}
-                name: Release ${{ github.event.inputs.tag_name }}
+                tag: ${{ env.LATEST_TAG }}
+                name: Release ${{ env.LATEST_TAG }}
                 artifacts: |
                     build/windows/*
                     build/linux/*
                     build/web/*
                 body: |
-                    Release ${{ github.event.inputs.tag_name }} of KnightGuy
+                    Release ${{ env.LATEST_TAG }} of KnightGuy
