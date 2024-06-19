@@ -124,7 +124,10 @@ jobs:
         run: |
           echo "LATEST_TAG: ${{ env.LATEST_TAG }}"
           echo "Latest release tag: ${{ steps.get_latest_release.outputs.tag_name }}"
-          if [ "${{ env.LATEST_TAG }}" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
+          if [ -z "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
+            echo "No releases found."
+            echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
+          elif [ "${{ env.LATEST_TAG }}" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
             echo "Release already exists."
             echo "RELEASE_EXISTS=true" >> $GITHUB_ENV
           else
