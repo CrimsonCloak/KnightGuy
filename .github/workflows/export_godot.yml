@@ -104,31 +104,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      # Step to get the latest tag
       - name: Get latest tag
         id: get_latest_tag
         run: echo "LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
 
+      # Step to get the latest release
       - name: Get the most recent release
         id: get_latest_release
         uses: joutvhu/get-release@v1
         with:
           latest: true
-          # Tag name start with `v`
           pattern: '^v.*'
-          # Including pre-release
           prerelease: true
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step to check if release already exists
       - name: Check if release already exists
         id: check_release
         run: |
+          echo "LATEST_TAG: ${{ env.LATEST_TAG }}"
+          echo "Latest release tag: ${{ steps.get_latest_release.outputs.tag_name }}"
           if [ "${{ env.LATEST_TAG }}" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
             echo "Release already exists."
             echo "RELEASE_EXISTS=true" >> $GITHUB_ENV
           else
+            echo "Release does not exist."
             echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
           fi
 
+      # Step to trigger release workflow if needed
       - name: Trigger release workflow
         if: env.RELEASE_EXISTS == 'false'
         uses: actions/github-script@v6
@@ -143,4 +147,3 @@ jobs:
                 tag_name: process.env.LATEST_TAG
               }
             });
-
