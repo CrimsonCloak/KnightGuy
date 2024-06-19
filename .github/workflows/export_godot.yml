@@ -138,15 +138,10 @@ jobs:
       # Step to trigger release workflow if needed
       - name: Trigger release workflow
         if: env.RELEASE_EXISTS == 'false'
-        uses: actions/github-script@v6
+        uses: actions/workflow-dispatch@v2
         with:
-          script: |
-            await github.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'release.yml',
-              ref: 'main',
-              inputs: {
-                tag_name: process.env.LATEST_TAG
-              }
-            });
+          workflow: 'release.yml'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: 'main'
+          inputs: |
+            tag_name: ${{ env.LATEST_TAG }}
