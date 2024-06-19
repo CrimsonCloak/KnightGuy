@@ -1,0 +1,46 @@
+name: "Create Release"
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name'
+        required: true
+
+jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Windows Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: KnightGuy-Windows
+          path: build/windows
+
+      - name: Download Linux Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: KnightGuy-Linux
+          path: build/linux
+
+      - name: Download Web Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: KnightGuy-Web
+          path: build/web
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+            tag: ${{ github.event.inputs.tag_name }}
+            name: Release ${{ github.event.inputs.tag_name }}
+            artifacts: |
+                build/windows/*
+                build/linux/*
+                build/web/*
+            body: |
+                Release ${{ github.event.inputs.tag_name }} of KnightGuy
