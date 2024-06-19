@@ -5,7 +5,7 @@ env:
   GODOT_VERSION: 4.2.2
   EXPORT_NAME: KnightGuy
   PROJECT_PATH: .
-
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   export-windows:
     name: Windows Export
@@ -117,8 +117,8 @@ jobs:
           pattern: '^v.*'
           # Including pre-release
           prerelease: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check if release already exists
         id: check_release
         run: |
