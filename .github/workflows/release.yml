@@ -8,6 +8,9 @@ jobs:
     check-release:
         name: Check and create release
         runs-on: ubuntu-latest
+        outputs:
+                  release_exists: ${{ steps.output_release_exists.outputs.release_exists }}
+                  latest_tag: ${{ steps.get_latest_tag.outputs.latest_tag }}
         steps:
           - name: Checkout
             uses: actions/checkout@v4
@@ -17,7 +20,9 @@ jobs:
           # Step to get the latest tag
           - name: Get latest tag
             id: get_latest_tag
-            run: echo "LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+            run: |
+              echo "LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+              echo "::set-output name=latest_tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
     
           # Step to get the latest release
           - name: Get the most recent release
