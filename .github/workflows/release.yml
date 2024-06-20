@@ -44,6 +44,8 @@ jobs:
                 echo "Release does not exist."
                 echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
               fi
+
+            
     
           # Step to trigger next job 'create-release' based on  RELEASE_EXISTS
           
@@ -55,7 +57,7 @@ jobs:
         steps:
           - name: Previous task output test
             run: |
-              echo "${{ needs.check-release.outputs }}"
+              echo "${{ env.RELEASE_EXISTS }}"
 
 
         # steps:
