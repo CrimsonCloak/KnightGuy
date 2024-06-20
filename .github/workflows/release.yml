@@ -29,7 +29,7 @@ jobs:
               prerelease: true
     
           # Step to check if release already exists
-          - name: Check if release already exists
+          - name: Check if release for tag already exists
             id: check_release
             run: |
               echo "LATEST_TAG: ${{ env.LATEST_TAG }}"
@@ -51,38 +51,42 @@ jobs:
         name: Create GitHub Release
         runs-on: ubuntu-latest
         needs: check-release
-        if: ${{ needs.check-release.outputs.check_release == 'false' }}
-
+        # {{ needs.check-release.outputs.check_release == 'false' }}
         steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+            - name: Previous task output test
+              run: |
+                echo ${{ needs.check-release.outputs.check_release }}
 
-        - name: Download Windows Artifact
-          uses: actions/download-artifact@v4
-          with:
-            name: KnightGuy-Windows
-            path: build/windows
+        # steps:
+        # - name: Checkout
+        #   uses: actions/checkout@v4
 
-        - name: Download Linux Artifact
-          uses: actions/download-artifact@v4
-          with:
-            name: KnightGuy-Linux
-            path: build/linux
+        # - name: Download Windows Artifact
+        #   uses: actions/download-artifact@v4
+        #   with:
+        #     name: KnightGuy-Windows
+        #     path: build/windows
 
-        - name: Download Web Artifact
-          uses: actions/download-artifact@v4
-          with:
-            name: KnightGuy-Web
-            path: build/web
+        # - name: Download Linux Artifact
+        #   uses: actions/download-artifact@v4
+        #   with:
+        #     name: KnightGuy-Linux
+        #     path: build/linux
 
-        - name: Create Release
-          uses: ncipollo/release-action@v1
-          with:
-                tag: ${{ env.LATEST_TAG }}
-                name: Release ${{ env.LATEST_TAG }}
-                artifacts: |
-                    build/windows/*
-                    build/linux/*
-                    build/web/*
-                body: |
-                    Release ${{ env.LATEST_TAG }} of KnightGuy
+        # - name: Download Web Artifact
+        #   uses: actions/download-artifact@v4
+        #   with:
+        #     name: KnightGuy-Web
+        #     path: build/web
+
+        # - name: Create Release
+        #   uses: ncipollo/release-action@v1
+        #   with:
+        #         tag: ${{ env.LATEST_TAG }}
+        #         name: Release ${{ env.LATEST_TAG }}
+        #         artifacts: |
+        #             build/windows/*
+        #             build/linux/*
+        #             build/web/*
+        #         body: |
+        #             Release ${{ env.LATEST_TAG }} of KnightGuy
