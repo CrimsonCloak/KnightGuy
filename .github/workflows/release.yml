@@ -53,9 +53,10 @@ jobs:
         needs: check-release
         # {{ needs.check-release.outputs.check_release == 'false' }}
         steps:
-            - name: Previous task output test
-              run: |
-                echo "${{ steps.check-release.outputs }}"
+          - name: Previous task output test
+            run: |
+              echo "${{ needs.check-release.outputs }}"
+
 
         # steps:
         # - name: Checkout
