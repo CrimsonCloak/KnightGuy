@@ -55,7 +55,7 @@ jobs:
         steps:
             - name: Previous task output test
               run: |
-                echo ${{ needs.check-release.outputs.check_release }}
+                echo "${{ steps.check-release.outputs }}"
 
         # steps:
         # - name: Checkout
