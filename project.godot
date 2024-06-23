@@ -19,6 +19,10 @@ config/icon="res://knight.png"
 
 BackgroundMusic="*res://Scenes/background_music.tscn"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 Jump={
