@@ -28,8 +28,8 @@ For the web-based build, I deploy this using GitHub Actions and GitHub Pages. Wh
 
 I would like to thank the following people:
 
-Brackeys - for providing an in-depth beginnner tutorial and the baseline assets
+Brackeys - for providing an in-depth beginnner tutorial and the baseline assets for this project
 
-Cainos - for providing great assets
+Cainos - for providing great assets 
 
 <!-- Playtesters: -->
