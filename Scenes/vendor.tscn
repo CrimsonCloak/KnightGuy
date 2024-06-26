@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://daov0gpvg53jp"]
+
+[ext_resource type="Texture2D" uid="uid://cjq7jhhkb1c3p" path="res://Assets/sprites/alternative_knight.png" id="1_fp3jo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl4xm"]
+atlas = ExtResource("1_fp3jo")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rhb1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl4xm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsf7b"]
+size = Vector2(23, 30)
+
+[node name="Vendor" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3rhb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_rsf7b")
