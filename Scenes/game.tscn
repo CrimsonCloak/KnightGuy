@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpl24dddx5fos"]
+[gd_scene load_steps=18 format=3 uid="uid://cpl24dddx5fos"]
 
 [ext_resource type="PackedScene" uid="uid://dp8fpqhulqn3p" path="res://Scenes/player.tscn" id="1_l8rth"]
 [ext_resource type="PackedScene" uid="uid://tajq3b7vkk83" path="res://Scenes/coin_counter.tscn" id="2_gu3pv"]
@@ -10,7 +10,6 @@
 [ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="8_iugyw"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="9_68vk0"]
 [ext_resource type="PackedScene" uid="uid://ding6m7xtsi4j" path="res://Scenes/chest_wood.tscn" id="10_8pd7u"]
-[ext_resource type="PackedScene" uid="uid://daov0gpvg53jp" path="res://Scenes/vendor.tscn" id="11_ylwqo"]
 [ext_resource type="PackedScene" uid="uid://dw01ed8jv2n5v" path="res://Scenes/alternate_knight.tscn" id="12_nkt1n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxryk"]
@@ -607,14 +606,5 @@ position = Vector2(2060, -88)
 [node name="Chest_wood" parent="." instance=ExtResource("10_8pd7u")]
 position = Vector2(1708, 34)
 
-[node name="Vendor" parent="." instance=ExtResource("11_ylwqo")]
-position = Vector2(2620, -80)
-scale = Vector2(0.5, 0.5)
-
-[node name="AnimatedSprite2D" parent="Vendor" index="0"]
-flip_h = true
-
 [node name="Alterknight" parent="." instance=ExtResource("12_nkt1n")]
-position = Vector2(2603, -68)
-
-[editable path="Vendor"]
+position = Vector2(2635, -68)
