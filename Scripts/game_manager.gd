@@ -3,7 +3,7 @@ extends Node
 # Player upgrades
 
 var swordCollected = false
-
+var paused = false
 # Coin responsibilities
 var coins = 0
 @onready var coin_counter = $CoinCounter
@@ -16,4 +16,3 @@ func add_coin():
 
 func pickup_sword():
 	swordCollected = true
-

@@ -464,6 +464,7 @@ script = ExtResource("9_68vk0")
 [node name="CoinCounter" parent="GameManager" instance=ExtResource("2_gu3pv")]
 
 [node name="Player" parent="." instance=ExtResource("1_l8rth")]
+process_mode = 3
 position = Vector2(-3, 12)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
