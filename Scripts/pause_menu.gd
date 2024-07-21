@@ -11,7 +11,10 @@ func _ready():
 func unpause():
 	animator.play("Unpause")
 	get_tree().paused = false
+	queue_free()
 	
+func quit():
+	get_tree().quit	
 	
 func pause():
 	animator.play("Pause")

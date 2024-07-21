@@ -56,13 +56,17 @@ _data = {
 "Unpause": SubResource("Animation_k0it2")
 }
 
-[node name="PauseMenu" type="ColorRect"]
+[node name="pause_menu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_6mp8e")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -71,43 +75,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PauseMenu/CenterContainer"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Paused
 "
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="UnpauseButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="UnpauseButton" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Continue your adventure!"
 text = "Unpause"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Quit the game"
 text = "Quit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PauseMenu"]
 libraries = {
 "": SubResource("AnimationLibrary_xrrh0")
 }
+autoplay = "Pause"

@@ -89,13 +89,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-#func handle_pause_game():
-	#$PauseMenu.pause()
-	#
-#func _unhandled_input(event):
-	#if event.is_action_pressed("Pause"):
-		##handle_pause_game()
-		#if get_tree().paused:
-			#get_tree().paused = false
-		#else: get_tree().paused = true
+
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("Pause"):
+		game_manager.handle_pause_game()
+
+		
 
