@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_6mp8e"]
 [ext_resource type="FontFile" uid="uid://daox0tyfta2al" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_i2mw0"]
-[ext_resource type="FontFile" uid="uid://dvlq32cksnsjk" path="res://Assets/fonts/PixelOperator8.ttf" id="3_rasin"]
+[ext_resource type="Theme" uid="uid://cmib6atvno23y" path="res://Assets/themes/default_theme.tres" id="3_4taao"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_0jiny"]
 action = &"Pause"
@@ -117,15 +117,17 @@ process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Continue your adventure!"
-theme_override_fonts/font = ExtResource("3_rasin")
+theme = ExtResource("3_4taao")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 shortcut = SubResource("Shortcut_lh1q6")
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-tooltip_text = "Quit the game"
-theme_override_fonts/font = ExtResource("3_rasin")
+tooltip_text = "Quit the game!"
+theme = ExtResource("3_4taao")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PauseMenu"]
