@@ -1,6 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnjnirjjrno80"]
+[gd_scene load_steps=8 format=3 uid="uid://bnjnirjjrno80"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_6mp8e"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_0jiny"]
+action = &"Pause"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_lh1q6"]
+events = [SubResource("InputEventAction_0jiny")]
 
 [sub_resource type="Animation" id="Animation_tuj0a"]
 resource_name = "Pause"
@@ -107,6 +114,7 @@ process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Continue your adventure!"
+shortcut = SubResource("Shortcut_lh1q6")
 text = "Unpause"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
