@@ -19,5 +19,6 @@ func handle_pause_game():
 		else: 
 			add_child(load("res://Scenes/Menu's/pause_menu.tscn").instantiate())
 			get_tree().paused = true
+			
 func pickup_sword():
 	swordCollected = true
