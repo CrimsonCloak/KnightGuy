@@ -57,17 +57,18 @@ _data = {
 }
 
 [node name="pause_menu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_6mp8e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
-follow_viewport_enabled = true
+offset = Vector2(900, 500)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 900, 500)
 
 [node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0)
-script = ExtResource("1_6mp8e")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu"]
 modulate = Color(1, 1, 1, 0)

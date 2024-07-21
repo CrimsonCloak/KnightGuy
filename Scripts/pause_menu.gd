@@ -1,8 +1,8 @@
-extends ColorRect
+extends Node2D
 
-@onready var animator: AnimationPlayer = $AnimationPlayer
-@onready var unpause_button: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UnpauseButton
-@onready var quit_button: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
+@onready var animator: AnimationPlayer = $CanvasLayer/PauseMenu/AnimationPlayer
+@onready var unpause_button: Button = $CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UnpauseButton
+@onready var quit_button: Button = $CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
 
 func _ready():
 	unpause_button.pressed.connect(unpause)
