@@ -4,6 +4,7 @@ extends Node
 
 var swordCollected = false
 var paused = false
+
 # Coin responsibilities
 var coins = 0
 @onready var coin_counter = $CoinCounter
