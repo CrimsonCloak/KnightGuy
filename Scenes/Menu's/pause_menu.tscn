@@ -130,7 +130,6 @@ size_flags_vertical = 3
 tooltip_text = "Continue your adventure!"
 theme = ExtResource("3_4taao")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-shortcut = SubResource("Shortcut_lh1q6")
 text = "Return to menu"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
