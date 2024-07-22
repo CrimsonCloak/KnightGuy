@@ -70,21 +70,27 @@ process_mode = 3
 script = ExtResource("1_6mp8e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(900, 500)
+offset = Vector2(1000, 500)
 scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 900, 500)
+transform = Transform2D(2, 0, 0, 2, 1000, 500)
 
 [node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 400.0
+offset_bottom = 250.0
 color = Color(1, 1, 1, 0)
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
