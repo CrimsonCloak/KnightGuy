@@ -10,8 +10,8 @@ var coins = 0
 @onready var coin_counter = $CoinCounter
 
 
-func add_coin():
-	coins += 1
+func add_coin(amount : int = 1):
+	coins += amount
 	coin_counter.get_child(0).update_coin_count(coins)
 	
 func handle_pause_game():
