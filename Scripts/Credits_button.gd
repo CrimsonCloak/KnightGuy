@@ -1,4 +1,4 @@
 extends Button
 
 func _pressed():
-	print("Showing credits")
+	get_tree().change_scene_to_file("res://Scenes/credits_screen.tscn")
